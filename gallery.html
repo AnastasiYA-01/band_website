@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дискография - Stray Kids</title>
+    <title>Галерея - Stray Kids</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,8 +15,9 @@
             <ul class="nav-menu">
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="members.html">Участники</a></li>
-                <li><a href="discography.html" >Дискография</a></li>
+                <li><a href="discography.html">Дискография</a></li>
                 <li><a href="gallery.html" class="active">Галерея</a></li>
+                <li><a href="tour.html">Тур</a></li>
             </ul>
         </nav>
     </header>
@@ -29,11 +30,134 @@
         </div>
     </section>
 
+    <!-- Переключатель фото/видео -->
+    <section class="gallery-controls">
+        <div class="toggle-buttons">
+            <button class="toggle-btn active" data-tab="photos">
+                <i class="fas fa-camera"></i> ФОТО
+            </button>
+            <button class="toggle-btn" data-tab="videos">
+                <i class="fas fa-video"></i> ВИДЕО
+            </button>
+        </div>
+    </section>
+
+    <!-- Галерея фото -->
+    <section class="gallery-content active" id="photos-content">
+        <div class="photos-grid">
+            <!-- Фото 1 -->
+            <div class="photo-item">
+                <img src="1.jpg" alt="Stray Kids Photo 1">
+                <div class="photo-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <!-- Фото 2 -->
+            <div class="photo-item">
+                <img src="2.jpg" alt="Stray Kids Photo 2">
+                <div class="photo-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <!-- Фото 3 -->
+            <div class="photo-item">
+                <img src="3.jpg" alt="Stray Kids Photo 3">
+                <div class="photo-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <!-- Фото 4 -->
+            <div class="photo-item">
+                <img src="4.jpg" alt="Stray Kids Photo 4">
+                <div class="photo-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <!-- Фото 5 -->
+            <div class="photo-item">
+                <img src="5.jpg" alt="Stray Kids Photo 5">
+                <div class="photo-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
+            <!-- Фото 6 -->
+            <div class="photo-item">
+                <img src="6.jpg" alt="Stray Kids Photo 6">
+                <div class="photo-overlay">
+                    <i class="fas fa-expand"></i>
+                </div>
+            </div>
 
 
 
 
+            
+            <!-- Добавь больше фото по необходимости -->
+        </div>
+    </section>
 
+    <!-- Галерея видео -->
+    <section class="gallery-content" id="videos-content">
+        <div class="videos-grid">
+            <!-- Видео 1 -->
+            <div class="video-item">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/TcCykqVgAJ4" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>God's Menu</h3>
+                    <p>Официальное музыкальное видео</p>
+                </div>
+            </div>
+            <!-- Видео 2 -->
+            <div class="video-item">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/X-uJtV8ScYk" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>MANIAC</h3>
+                    <p>Официальное музыкальное видео</p>
+                </div>
+            </div>
+            <!-- Видео 3 -->
+            <div class="video-item">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/7LJv90O1D5M" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>LALALALA</h3>
+                    <p>Официальное музыкальное видео</p>
+                </div>
+            </div>
+            <!-- Видео 4 -->
+            <div class="video-item">
+                <div class="video-player">
+                    <iframe src="https://www.youtube.com/embed/7JP8K8IQpQs" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-info">
+                    <h3>S-Class</h3>
+                    <p>Официальное музыкальное видео</p>
+                </div>
+            </div>
+            <!-- Добавь больше видео по необходимости -->
+        </div>
+    </section>
 
     <!-- Футер -->
     <footer>
@@ -45,6 +169,7 @@
                     <li><a href="members.html"><i class="fas fa-users"></i> Участники</a></li>
                     <li><a href="discography.html"><i class="fas fa-compact-disc"></i> Дискография</a></li>
                     <li><a href="gallery.html"><i class="fas fa-images"></i> Галерея</a></li>
+                    <li><a href="tour.html"><i class="fas fa-ticket-alt"></i> Тур</a></li>
                 </ul>
             </div>
             
@@ -75,24 +200,62 @@
         </div>
     </footer>
 
+    <!-- Модальное окно для фото -->
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <img src="" alt="" id="modalImage">
+        </div>
+    </div>
+
     <script>
-        // Простая функция для кнопок воспроизведения
-        document.querySelectorAll('.play-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const icon = this.querySelector('i');
-                if (icon.classList.contains('fa-play')) {
-                    icon.classList.remove('fa-play');
-                    icon.classList.add('fa-pause');
-                    // Здесь можно добавить реальное воспроизведение
-                } else {
-                    icon.classList.remove('fa-pause');
-                    icon.classList.add('fa-play');
-                    // Здесь можно добавить паузу
+    // Переключение между фото и видео
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const galleryContents = document.querySelectorAll('.gallery-content');
+
+    toggleBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var tab = btn.getAttribute('data-tab');
+            
+            // Обновляем активные кнопки
+            toggleBtns.forEach(function(b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            
+            // Показываем соответствующий контент
+            galleryContents.forEach(function(content) {
+                content.classList.remove('active');
+                if (content.id === tab + '-content') {
+                    content.classList.add('active');
                 }
             });
         });
-    </script>
+    });
+
+    // Модальное окно для фото
+    const photoItems = document.querySelectorAll('.photo-item');
+    const modal = document.getElementById('photoModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeBtn = document.querySelector('.close-btn');
+
+    photoItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+            var imgSrc = item.querySelector('img').src;
+            modalImage.src = imgSrc;
+            modal.style.display = 'flex';
+        });
+    });
+
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
 </body>
-
 </html>
-
