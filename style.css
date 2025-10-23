@@ -1,0 +1,1496 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #fff; /* Белый текст для темной темы */
+    background-color: #000; /* Черный фон всего сайта */
+}
+
+/* Навигационная панель */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #000;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #333;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ff0000;
+}
+
+/* Главный баннер */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Делаем картинку бледной */
+    filter: brightness(0.6);
+    opacity: 0.9;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Дополнительное затемнение для лучшей читаемости */
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.anniversary-btn {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 3;
+}
+
+.anniversary-btn:hover {
+    transform: scale(1.05);
+    background-color: #cc0000;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 3;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 3;
+}
+
+.cta-btn {
+    padding: 15px 30px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cta-btn.secondary {
+    background: white;
+    color: #000;
+    text-shadow: none;
+}
+
+.cta-btn:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+    transform: translateY(-3px);
+}
+
+.cta-btn.secondary:hover {
+    background: #ff0000;
+    color: white;
+    border-color: #ff0000;
+}
+
+/* Статистика - ТЕМНАЯ ТЕМА */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 5rem 5%;
+    background-color: #111; /* Темный фон вместо белого */
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: #1a1a1a; /* Темные прямоугольники */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s;
+    border: 1px solid #333;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    background: #222;
+}
+
+.stat-item h2 {
+    font-size: 3rem;
+    color: #ff0000;
+    margin-bottom: 1rem;
+}
+
+.stat-item p {
+    font-size: 1.2rem;
+    color: #ccc; /* Светло-серый текст */
+}
+
+/* Футер - ЦЕНТРИРОВАННЫЙ */
+/* Футер - ЦЕНТРИРОВАННЫЙ */
+footer {
+    background-color: #000;
+    color: white;
+    padding: 3rem 5% 1rem;
+    border-top: 1px solid #333;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.footer-section h3 {
+    color: #ff0000;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.footer-section a:hover {
+    color: #ff0000;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+/* Стили для иконок */
+.footer-section i {
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Особые стили для социальных сетей */
+.social-links a:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Особые стили для ресурсов */
+.resource-links a:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Цвета для конкретных социальных сетей */
+.social-links a[href*="youtube"]:hover { color: #ff0000; }
+.social-links a[href*="instagram"]:hover { color: #e4405f; }
+.social-links a[href*="twitter"]:hover { color: #1da1f2; }
+.social-links a[href*="tiktok"]:hover { color: #69c9d0; }
+.social-links a[href*="facebook"]:hover { color: #1877f2; }
+.social-links a[href*="weverse"]:hover { color: #ff4081; }
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    color: #999;
+    font-size: 0.9rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section a {
+        justify-content: center;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .background-image {
+        object-position: center;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+/* ---------------- */
+
+/* Стили для страницы участников */
+
+/* Заголовок страницы */
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('https://via.placeholder.com/1920x400/333/ffffff?text=STRAY+KIDS+MEMBERS') center/cover no-repeat;
+    padding: 120px 5% 60px;
+    text-align: center;
+    color: white;
+    margin-top: 60px;
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.motto {
+    font-size: 1.8rem;
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Сетка участников */
+.members-section {
+    padding: 5rem 5%;
+    background-color: #111;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Карточка участника */
+.member-card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255,0,0,0.2);
+    border-color: #ff0000;
+}
+
+.member-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover .member-image img {
+    transform: scale(1.1);
+}
+
+.member-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.member-info h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.member-role {
+    color: #ff0000;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.member-details {
+    color: #ccc;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.member-details i {
+    color: #ff0000;
+    margin-right: 5px;
+    width: 15px;
+}
+
+/* Активная ссылка в навигации */
+.nav-menu .active {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Адаптивность для участников */
+@media (max-width: 1200px) {
+    .members-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .members-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .motto {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .motto {
+        font-size: 1.2rem;
+    }
+    
+    .member-image {
+        height: 250px;
+    }
+}
+
+/* Секция "О группе" */
+.about-section {
+    padding: 5rem 5%;
+    background-color: #000;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.about-text p {
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.about-text strong {
+    color: #ff0000;
+}
+
+.about-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    background: #1a1a1a;
+    border-radius: 8px;
+    border-left: 4px solid #ff0000;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: #222;
+    transform: translateX(10px);
+}
+
+.info-label {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+/* Адаптивность для секции "О группе" */
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-text h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .info-value {
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    .info-label, .info-value {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+
+
+.stat-card.purple {
+    background: rgba(156, 39, 176, 0.1);
+    border-color: rgba(156, 39, 176, 0.3);
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.stat-card.yellow .stat-number {
+    color: #ffc107;
+}
+
+.stat-card.pink .stat-number {
+    color: #e91e63;
+}
+
+.stat-card.purple .stat-number {
+    color: #9c27b0;
+}
+
+.stat-desc p {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.stat-sub {
+    color: #ccc !important;
+    font-size: 0.9rem !important;
+    text-transform: none !important;
+    font-weight: normal !important;
+}
+
+/* Адаптивность для дискографии */
+/* Стили для страницы дискографии */
+
+/* Заголовок страницы */
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('https://via.placeholder.com/1920x400/333/ffffff?text=STRAY+KIDS+DISCOGRAPHY') center/cover no-repeat;
+    padding: 120px 5% 60px;
+    text-align: center;
+    color: white;
+    margin-top: 60px;
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Подзаголовок */
+.subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Секция альбомов */
+.discography-section {
+    padding: 5rem 5%;
+    background-color: #111;
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+/* Сетка альбомов */
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Карточка альбома */
+.album-card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(255,0,0,0.2);
+    border-color: #ff0000;
+}
+
+.album-cover {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.album-card:hover .album-cover img {
+    transform: scale(1.1);
+}
+
+.album-info {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.album-main {
+    text-align: left;
+    flex: 1;
+}
+
+.album-main h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.album-status {
+    color: #ff0000;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.album-year {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.album-details {
+    text-align: right;
+}
+
+.track-count {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Секция популярных треков */
+.tracks-section {
+    padding: 5rem 5%;
+    background-color: #000;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.tracks-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.track-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    background: #1a1a1a;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.track-item:hover {
+    background: #222;
+    border-color: #ff0000;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.track-number {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    min-width: 30px;
+}
+
+.track-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    text-align: left;
+}
+
+.track-title {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.track-album {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.track-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.track-duration {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.play-btn {
+    background: #ff0000;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-btn:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+}
+
+/* Секция статистики */
+.stats-section {
+    padding: 5rem 5%;
+    background-color: #111;
+    text-align: center;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-card.yellow {
+    background: rgba(255, 193, 7, 0.1);
+    border-color: rgba(255, 193, 7, 0.3);
+}
+
+.stat-card.pink {
+    background: rgba(233, 30, 99, 0.1);
+    border-color: rgba(233, 30, 99, 0.3);
+}
+
+.stat-card.purple {
+    background: rgba(156, 39, 176, 0.1);
+    border-color: rgba(156, 39, 176, 0.3);
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.stat-card.yellow .stat-number {
+    color: #ffc107;
+}
+
+.stat-card.pink .stat-number {
+    color: #e91e63;
+}
+
+.stat-card.purple .stat-number {
+    color: #9c27b0;
+}
+
+.stat-desc p {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.stat-sub {
+    color: #ccc !important;
+    font-size: 0.9rem !important;
+    text-transform: none !important;
+    font-weight: normal !important;
+}
+
+/* Адаптивность для дискографии */
+@media (max-width: 1200px) {
+    .albums-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .albums-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .albums-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .album-info {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .album-main {
+        text-align: center;
+    }
+    
+    .album-details {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+    
+    .track-item {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .track-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .track-details {
+        text-align: center;
+    }
+    
+    .track-controls {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+
+/* Музыкальный плеер - КРАСИВЫЙ ВАРИАНТ */
+.music-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 0, 0, 0.3);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.5);
+}
+
+.player-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    min-width: 200px;
+}
+
+.album-cover-small {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.album-cover-small:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 0, 0, 0.5);
+}
+
+.album-cover-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.track-details-player {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.track-title-player {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.track-album-player {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0.8rem;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.control-btn:hover {
+    background: rgba(255, 0, 0, 0.3);
+    color: #fff;
+    transform: scale(1.1);
+    border-color: rgba(255, 0, 0, 0.5);
+}
+
+.play-pause {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+    border: none;
+}
+
+.play-pause:hover {
+    background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(255, 0, 0, 0.6);
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 2;
+}
+
+.time-current,
+.time-total {
+    color: #ccc;
+    font-size: 0.8rem;
+    min-width: 35px;
+    font-weight: 500;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.progress-bar:hover {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #ff0000 0%, #ff6b6b 100%);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.volume-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.volume-btn:hover {
+    background: rgba(255, 0, 0, 0.3);
+}
+
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    outline: none;
+    -webkit-appearance: none;
+    transition: all 0.3s ease;
+}
+
+.volume-slider:hover {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ff0000;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    background: #ff6b6b;
+    transform: scale(1.2);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ff0000;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.5);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.volume-slider::-moz-range-thumb:hover {
+    background: #ff6b6b;
+    transform: scale(1.2);
+}
+
+/* Анимация для играющего трека */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.music-player.playing .album-cover-small {
+    animation: pulse 2s infinite;
+}
+
+/* Стили для кнопок воспроизведения в списке треков */
+.play-btn {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+}
+
+.play-btn:hover {
+    background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Адаптивность для плеера */
+@media (max-width: 768px) {
+    .music-player {
+        padding: 1rem;
+    }
+    
+    .player-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .track-info {
+        flex: 100%;
+        justify-content: center;
+        order: 1;
+        text-align: center;
+    }
+    
+    .player-controls {
+        order: 2;
+        flex: none;
+    }
+    
+    .progress-container {
+        order: 3;
+        flex: 100%;
+    }
+    
+    .volume-control {
+        order: 4;
+        flex: none;
+        justify-content: center;
+    }
+    
+    .album-cover-small {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .play-pause {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .control-btn {
+        width: 40px;
+        height: 40px;
+        padding: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .track-info {
+        min-width: auto;
+    }
+    
+    .progress-container {
+        gap: 0.5rem;
+    }
+    
+    .volume-slider {
+        width: 80px;
+    }
+    
+    .track-title-player {
+        font-size: 0.9rem;
+    }
+    
+    .track-album-player {
+        font-size: 0.75rem;
+    }
+}
+
+/* Дополнительные эффекты для лучшего UX */
+.music-player::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #ff0000 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.music-player.playing::before {
+    opacity: 1;
+}
+
+/* Стили для активного трека в списке */
+.track-item.playing {
+    background: rgba(255, 0, 0, 0.1);
+    border-color: #ff0000;
+}
+
+.track-item.playing .track-number {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Стили для наложенной картинки - ИСПРАВЛЕННЫЕ */
+.overlay-image-container {
+    position: absolute;
+    top: 40%; /* Поднимаем выше */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    max-width: 800px; /* Увеличиваем максимальную ширину */
+    padding: 0 20px;
+}
+
+.overlay-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px; /* Увеличиваем высоту */
+    object-fit: contain;
+    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.7));
+    /* Убираем прыгающую анимацию, оставляем только плавное появление */
+    opacity: 0;
+    animation: fadeInScale 1.5s ease-out 0.5s forwards;
+}
+
+/* Плавное появление с легким масштабированием */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Легкий ховер-эффект вместо прыгания */
+.overlay-image:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.8));
+    transition: all 0.3s ease;
+}
+
+/* Усиливаем затемнение фона для лучшей видимости */
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 30%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .overlay-image-container {
+        max-width: 600px;
+        top: 35%; /* На мобильных поднимаем еще выше */
+    }
+    
+    .overlay-image {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay-image-container {
+        max-width: 400px;
+        padding: 0 15px;
+        top: 35%;
+    }
+    
+    .overlay-image {
+        max-height: 300px;
+    }
+}
+
+/* Убедитесь что hero-background имеет position: relative */
+.hero-background {
+    position: relative;
+}
