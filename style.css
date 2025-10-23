@@ -1048,7 +1048,7 @@ footer {
 }
 
 
-/* Музыкальный плеер - КРАСИВЫЙ ВАРИАНТ */
+/* Музыкальный плеер */
 .music-player {
     position: fixed;
     bottom: 0;
@@ -1406,31 +1406,35 @@ footer {
     font-weight: bold;
 }
 
-/* Стили для наложенной картинки - ИСПРАВЛЕННЫЕ */
+/* Стили для наложенной картинки - КРУПНЕЕ И ВЫШЕ */
 .overlay-image-container {
     position: absolute;
-    top: 40%; /* Поднимаем выше */
+    top: 30%; /* Поднимаем выше (было 50%) */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
     text-align: center;
-    width: 100%;
-    max-width: 800px; /* Увеличиваем максимальную ширину */
-    padding: 0 20px;
+    width: auto;
 }
 
 .overlay-image {
-    width: 100%;
+    width: auto;
     height: auto;
-    max-height: 500px; /* Увеличиваем высоту */
+    max-width: 600px; /* Крупнее (было 400px) */
+    max-height: none; /* Крупнее (было 300px) */
     object-fit: contain;
-    filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.7));
-    /* Убираем прыгающую анимацию, оставляем только плавное появление */
+    filter: 
+        drop-shadow(0 12px 30px rgba(0, 0, 0, 0.8))
+        contrast(1.1)
+        brightness(1.05);
     opacity: 0;
     animation: fadeInScale 1.5s ease-out 0.5s forwards;
+    
+    /* Сохраняем пропорции */
+    display: block;
 }
 
-/* Плавное появление с легким масштабированием */
+/* Анимация плавного появления */
 @keyframes fadeInScale {
     0% {
         opacity: 0;
@@ -1442,14 +1446,17 @@ footer {
     }
 }
 
-/* Легкий ховер-эффект вместо прыгания */
+/* Легкий ховер-эффект */
 .overlay-image:hover {
-    transform: scale(1.02);
-    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.8));
+    transform: scale(1.05);
+    filter: 
+        drop-shadow(0 18px 40px rgba(0, 0, 0, 0.9))
+        contrast(1.15)
+        brightness(1.1);
     transition: all 0.3s ease;
 }
 
-/* Усиливаем затемнение фона для лучшей видимости */
+/* Усиливаем затемнение фона, особенно сверху */
 .hero-background::after {
     content: '';
     position: absolute;
@@ -1460,37 +1467,328 @@ footer {
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.7) 0%,
-        rgba(0, 0, 0, 0.5) 30%,
-        rgba(0, 0, 0, 0.6) 100%
+        rgba(0, 0, 0, 0.4) 40%,
+        rgba(0, 0, 0, 0.5) 100%
     );
     z-index: 1;
 }
 
-/* Адаптивность */
+/* Адаптивность - картинка всегда по центру и выше */
+@media (max-width: 1200px) {
+    .overlay-image {
+        max-width: 450px;
+        max-height: 340px;
+    }
+}
+
 @media (max-width: 768px) {
     .overlay-image-container {
-        max-width: 600px;
-        top: 35%; /* На мобильных поднимаем еще выше */
+        top: 42%; /* На мобильных тоже поднимаем */
     }
     
     .overlay-image {
-        max-height: 400px;
+        max-width: 350px;
+        max-height: 260px;
     }
 }
 
 @media (max-width: 480px) {
     .overlay-image-container {
-        max-width: 400px;
-        padding: 0 15px;
-        top: 35%;
+        top: 40%; /* Еще выше на маленьких экранах */
     }
     
     .overlay-image {
-        max-height: 300px;
+        max-width: 280px;
+        max-height: 210px;
+    }
+}
+
+@media (max-width: 360px) {
+    .overlay-image {
+        max-width: 240px;
+        max-height: 180px;
+    }
+}
+
+/* Для очень высоких экранов */
+@media (min-height: 1000px) {
+    .overlay-image-container {
+        top: 40%; /* На высоких экранах еще выше */
+    }
+    
+    .overlay-image {
+        max-width: 550px;
+        max-height: 420px;
     }
 }
 
 /* Убедитесь что hero-background имеет position: relative */
 .hero-background {
     position: relative;
+}
+
+/* Убедитесь что hero-background имеет position: relative */
+.hero-background {
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Стили для страницы галереи */
+
+/* Переключатель фото/видео */
+.gallery-controls {
+    padding: 3rem 5%;
+    background-color: #111;
+    text-align: center;
+}
+
+.toggle-buttons {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    padding: 5px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toggle-btn {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    padding: 12px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle-btn.active {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.toggle-btn:not(.active):hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Контент галереи */
+.gallery-content {
+    display: none;
+    padding: 2rem 5%;
+    background-color: #000;
+}
+
+.gallery-content.active {
+    display: block;
+}
+
+/* Сетка фото */
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    aspect-ratio: 1;
+    border: 1px solid #333;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.photo-overlay i {
+    color: white;
+    font-size: 2rem;
+}
+
+/* Сетка видео */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.video-item {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+    border-color: #ff0000;
+}
+
+.video-player {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 соотношение */
+    height: 0;
+}
+
+.video-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 1.5rem;
+}
+
+.video-info h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-info p {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: rgba(255, 0, 0, 0.7);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #ff0000;
+    transform: scale(1.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .toggle-buttons {
+        flex-direction: column;
+        width: 200px;
+    }
+    
+    .photos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .video-item {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .toggle-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
